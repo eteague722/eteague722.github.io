@@ -32,3 +32,12 @@
     <script>anchors.add();</script>
   </body>
 </html>
+
+{% if post %}
+    {% assign categories = post.categories %}
+{% else %}
+    {% assign categories = page.categories %}
+{% endif %}
+ {% if categories.size > 0%}
+    <p><strong>Posted In</strong>: {{categories | join: ', ' | capitalize }}</p>
+{%endif%}
